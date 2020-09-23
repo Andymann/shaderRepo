@@ -16,7 +16,7 @@
 precision highp float;
 #endif
 
-#extension GL_OES_standard_derivatives : enable
+//#extension GL_OES_standard_derivatives : enable
 
 
 vec2 rand2(vec2 p)

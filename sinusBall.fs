@@ -23,7 +23,7 @@
 precision mediump float;
 #endif
 
-#extension GL_OES_standard_derivatives : enable
+//#extension GL_OES_standard_derivatives : enable
 
 
 vec3 lightDir = normalize(vec3(1.0, 1.0, 1.0));

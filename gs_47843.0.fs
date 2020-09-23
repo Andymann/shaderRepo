@@ -15,7 +15,7 @@
 #ifdef GL_ES
 precision mediump float;
 #endif
-#extension GL_OES_standard_derivatives : enable
+//#extension GL_OES_standard_derivatives : enable
 #define PI 3.14159265359
 
 //int route[3368] = int[3368](1,1,2,3,1,2,1,4,5,5,3,1,1,4,1,1,2,3,1,2,1,4,5,5,3,1,1,4,2,3,1,1,2,3,1,2,1,4,5,5,3,1,1,4,2,1,1,2,3,1,2,1,4,5,5,3,1,1

@@ -637,7 +637,7 @@ Hit raymarch(CastRay castRay){
 
 void shadeSurface(inout Hit hit){
     
-    vec3 color = BACKGROUND_COLOR;
+    vec3 color = vec3(0.);//BACKGROUND_COLOR;
     
     if (hit.isBackground) {
         hit.color = color;

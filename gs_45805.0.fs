@@ -16,7 +16,7 @@
 precision mediump float;
 #endif
 
-#extension GL_OES_standard_derivatives : enable
+//#extension GL_OES_standard_derivatives : enable
 
 
 float square (vec2 position, float x, float y, float z, float q) {

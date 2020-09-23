@@ -16,7 +16,7 @@
 precision mediump float;
 #endif
 
-#extension GL_OES_standard_derivatives : enable
+//#extension GL_OES_standard_derivatives : enable
 
 //author: tigrou dot ind at gmail dot com
 //30.06.2018 : try another method

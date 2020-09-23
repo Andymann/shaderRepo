@@ -24,13 +24,13 @@ float rcos(float x,float phase){
 	return (cos((x+phase)*2.*PI)+.5);	
 
 }
-float rand(vec2 co)
+ float rand(vec2 co)
 {
-    float a = 12.9898;
-    float b = 78.233;
-    float c = 43758.5453;
-    float dt= dot(co.xy ,vec2(a,b));
-    float sn= mod(dt,3.14);
+     float a = 12.9898;
+     float b = 78.233;
+     float c = 43758.5453;
+     float dt= dot(co.xy ,vec2(a,b));
+     float sn= mod(dt,3.14);
     return fract(sin(sn) * c);
 }
 vec3 rain(float x){

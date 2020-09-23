@@ -1,27 +1,29 @@
-/*
- * Original shader from: https://www.shadertoy.com/view/wdfGW4
- */
+/*{
+    "CATEGORIES": [
+        "Automatically Converted",
+        "GLSLSandbox"
+    ],
+    "CREDIT": "",
+    "DESCRIPTION": "Automatically converted from http://glslsandbox.com/e#66131.0",
+    "ISFVSN": "2"
+}
+*/
+
 
 #ifdef GL_ES
 precision mediump float;
 #endif
 
-// glslsandbox uniforms
-uniform float time;
-uniform vec2 resolution;
+////#extension GL_OES_standard_derivatives : enable
 
-// shadertoy emulation
-#define iTime time
-#define iResolution resolution
+vec3  iResolution;
+float iTime;
 
-// --------[ Original ShaderToy begins here ]---------- //
-//#define FAST_DESCENT
 
-#ifdef FAST_DESCENT
-const vec3 cameraDir = normalize(vec3(-2.0, -1.0, -4.0));
-const float cameraDist = 5.0;
+const vec3 cameraDir = /*normalize*/(vec3(-2.0, -1.0, -4.0));
+const float cameraDist = 20.0;
 const float speed = 3.0;
-const float zoom = 2.5;
+const float zoom = 2.;
 
 const vec3 windowColorA = vec3(0.0, 0.0, 1.5);
 const vec3 windowColorB = vec3(0.5, 1.5, 2.0);
@@ -37,27 +39,6 @@ const vec3 lightColorB = vec3(1.0, 0.6, 0.3);
 
 const vec3 signColorA = vec3(0.0, 0.0, 1.5);
 const vec3 signColorB = vec3(3.0, 3.0, 3.0);
-#else
-const vec3 cameraDir = normalize(vec3(-2.0, -1.0, -2.0));
-const float cameraDist = 9.0;
-const float speed = 1.0;
-const float zoom = 3.5;
-
-const vec3 windowColorA = vec3(0.0, 0.0, 1.5);
-const vec3 windowColorB = vec3(0.5, 1.5, 2.0);
-
-const float fogOffset = 7.0;
-const float fogDensity = 0.7;
-const vec3 fogColor = vec3(0.25, 0.0, 0.3);
-
-const float lightHeight = 0.0;
-const float lightSpeed = 0.15;
-const vec3 lightColorA = vec3(0.7, 0.3, 0.1);
-const vec3 lightColorB = vec3(1.0, 0.6, 0.3);
-
-const vec3 signColorA = vec3(0.0, 0.0, 1.5);
-const vec3 signColorB = vec3(3.0, 3.0, 3.0);
-#endif
 
 const float tau = 6.283185;
 
@@ -193,30 +174,30 @@ vec4 castRay(vec3 eye, vec3 ray, vec2 center) {
     return vec4(100.0, 0.0, 0.0, 1.0);
 }
 
-vec3 window(float z, vec2 id) {
-    float windowSize = 0.03 + 0.1 * hash1(id + 0.1);
-    float windowProb = 0.4 + 0.6 * hash1(id + 0.2);
+vec3 window(float z, vec2 pos, vec2 id) {
+    float windowSize = 0.03 + 0.12 * hash1(id + 0.1);
+    float windowProb = 0.3 + 0.8 * hash1(id + 0.2);
     float depth = z / windowSize;
     float level = floor(depth);
     vec3 colorA = mix(windowColorA, windowColorB, hash3(id));
     vec3 colorB = mix(windowColorA, windowColorB, hash3(id + 0.1));
     vec3 color = mix(colorA, colorB, hash1(id, level));
+    color *= 0.3 + 0.7 * smoothstep(0.1, 0.5, noise(20.0 * pos + 100.0 * hash1(level)));
     color *= smoothstep(windowProb - 0.2, windowProb + 0.2, hash1(id, level + 0.1));
     return color * (0.5 - 0.5 * cos(tau * depth));
 }
 
-vec3 addLight(vec3 eye, vec3 ray, float res, float time, float height) {
+vec3 addLight(vec3 eye, vec3 ray, float res, float TIME, float height) {
     vec2 q = eye.xy + ((height - eye.z) / ray.z) * ray.xy;
 
     float row = floor(q.x + 0.5);
-    time += hash1(row);
-    float col = floor(0.125 * q.y - time);
+    TIME += hash1(row);
+    float col = floor(0.125 * q.y - TIME);
 
-    float pos = 0.4 + 0.4 * cos(time + tau * hash1(vec2(row, col)));
-    vec3 lightPos = vec3(row, 8.0 * (col + time + pos), height);
+    float pos = 0.4 + 0.4 * cos(TIME + tau * hash1(vec2(row, col)));
+    vec3 lightPos = vec3(row, 8.0 * (col + TIME + pos), height);
     vec3 lightDir = vec3(0.0, 1.0, 0.0);
 
-    // http://geomalgorithms.com/a07-_distance.html
     vec3 w = eye - lightPos;
     float a = dot(ray, ray);
     float b = dot(ray, lightDir);
@@ -271,11 +252,11 @@ vec3 addSign(vec3 color, vec3 pos, float side, vec2 id) {
     flicker = step(0.93, flicker);
     flicker = 1.0 - flicker * step(0.96, hash1(charId, iTime));
 
-    float char = -3.5 + 8.0 * noise(id + 6.0 * charPos);
+    float char_1 = -3.5 + 8.0 * noise(id + 6.0 * charPos);
     charPos = fract(charPos);
-    char *= smoothstep(0.0, 0.4, charPos.x) * smoothstep(1.0, 0.6, charPos.x);
-    char *= smoothstep(0.0, 0.4, charPos.y) * smoothstep(1.0, 0.6, charPos.y);
-    color = mix(color, signColor, flash * flicker * step(outline, 0.01) * clamp(char, 0.0, 1.0));
+    char_1 *= smoothstep(0.0, 0.4, charPos.x) * smoothstep(1.0, 0.6, charPos.x);
+    char_1 *= smoothstep(0.0, 0.4, charPos.y) * smoothstep(1.0, 0.6, charPos.y);
+    color = mix(color, signColor, flash * flicker * step(outline, 0.01) * clamp(char_1, 0.0, 1.0));
 
     outline = smoothstep(0.0, 0.2, outline) * smoothstep(0.5, 0.3, outline);
     return mix(color, outlineColor, flash * outline);
@@ -295,7 +276,7 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     vec3 p = eye + res.x * ray;
 
     vec2 block = floor(p.xy);
-	vec3 color = window(p.z - res.y, block);
+	vec3 color = window(p.z - res.y, p.xy, block);
 
     color = addSign(color, vec3(p.xy - block, p.z - res.y), res.z, block);
     color = mix(vec3(0.0), color, abs(res.z));
@@ -303,17 +284,21 @@ void mainImage(out vec4 fragColor, in vec2 fragCoord) {
     float fog = exp(-fogDensity * max(res.x - fogOffset, 0.0));
     color = mix(fogColor, color, fog);
 
-    float time = lightSpeed * iTime;
-    color += addLight(eye.xyz, ray.xyz, res.x, time, lightHeight - 0.6);
-    color += addLight(eye.yxz, ray.yxz, res.x, time, lightHeight - 0.4);
-    color += addLight(vec3(-eye.xy, eye.z), vec3(-ray.xy, ray.z), res.x, time, lightHeight - 0.2);
-    color += addLight(vec3(-eye.yx, eye.z), vec3(-ray.yx, ray.z), res.x, time, lightHeight);
+    float TIME = lightSpeed * iTime;
+    color += addLight(eye.xyz, ray.xyz, res.x, TIME, lightHeight - 0.6);
+    color += addLight(eye.yxz, ray.yxz, res.x, TIME, lightHeight - 0.4);
+    color += addLight(vec3(-eye.xy, eye.z), vec3(-ray.xy, ray.z), res.x, TIME, lightHeight - 0.2);
+    color += addLight(vec3(-eye.yx, eye.z), vec3(-ray.yx, ray.z), res.x, TIME, lightHeight);
 
     fragColor = vec4(color, 1.0);
 }
-// --------[ Original ShaderToy ends here ]---------- //
+#undef TIME
+#undef RENDERSIZE
 
 void main(void)
 {
-    mainImage(gl_FragColor, gl_FragCoord.xy);
+  iResolution = vec3(RENDERSIZE, 0.0);
+  iTime = TIME;
+
+  mainImage(gl_FragColor, gl_FragCoord.xy);
 }

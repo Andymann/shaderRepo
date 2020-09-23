@@ -19,7 +19,7 @@
 precision highp float;
 #endif
 
-#extension GL_OES_standard_derivatives : enable
+//#extension GL_OES_standard_derivatives : enable
 
 
 #define MAX_DIST 8.0

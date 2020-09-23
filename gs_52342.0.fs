@@ -16,7 +16,7 @@
  * Original shader from: https://www.shadertoy.com/view/wdBGDh
  */
 
-#extension GL_OES_standard_derivatives : enable
+//#extension GL_OES_standard_derivatives : enable
 
 #ifdef GL_ES
 precision mediump float;

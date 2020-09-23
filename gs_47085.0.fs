@@ -16,7 +16,7 @@
 precision mediump float;
 #endif
 
-#extension GL_OES_standard_derivatives : enable
+//#extension GL_OES_standard_derivatives : enable
 
 //example from https://www.shadertoy.com/view/MdSGRc
 float hash1( float n ) { return fract(sin(n)*43758.5453); }

@@ -167,7 +167,7 @@ void main() {
 	drawGrid(col, xy, 0.5, vec4(1.0, 1.0, 1.0, 0.1));
 	drawGrid(col, xy, 1.0, vec4(1.0, 1.0, 1.0, 0.4));
 	float rate = SCOPE_RATE;
-    if (iMouse.z > 0.0)
+    //if (iMouse.z > 0.0)
     {
         rate = iMouse.x / RENDERSIZE.x;
         rate = pow(2.0, mix(-3.0, 3.0, rate));

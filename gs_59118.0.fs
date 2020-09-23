@@ -16,7 +16,7 @@
  * Original shader from: https://www.shadertoy.com/view/Msf3D7
  */
 
-#extension GL_OES_standard_derivatives : enable
+////#extension GL_OES_standard_derivatives : enable
 
 #ifdef GL_ES
 precision mediump float;

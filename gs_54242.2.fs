@@ -16,7 +16,7 @@
 precision mediump float;
 #endif
 
-#extension GL_OES_standard_derivatives : enable
+//#extension GL_OES_standard_derivatives : enable
 
 #define size 0.1
 #define r 0.03

@@ -118,9 +118,9 @@ void main( void )
 	
 	vec2 li = mo;//vec2(cos(TIME),sin(TIME))*0.2;
 	
-	vec3 bg = vec3(0.75);
-	bg *= smoothstep(-0.02,0.02,d);
-	bg *= (shadow(uv, li) * max(0.0, 1.0 - distance(uv,li) * 2.5))*0.75+0.125;
+	vec3 bg = vec3(0.);
+	//bg *= smoothstep(-0.02,0.02,d);
+	//bg *= (shadow(uv, li) * max(0.0, 1.0 - distance(uv,li) * 2.5))*0.75+0.125;
 	
 	vec3 fg = vec3(1.0,0.5,0.0) * smoothstep(0.000,0.003,-map(uv));
 	

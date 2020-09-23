@@ -22,7 +22,7 @@ precision mediump float;
 #endif
 //Miners Drill
 //2017.11.3 You can contacted me on steam at Pass The salt plz
-#extension GL_OES_standard_derivatives : enable
+//#extension GL_OES_standard_derivatives : enable
 
 
 vec4 pattern(vec2 pos, float ang) 

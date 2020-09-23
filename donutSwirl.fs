@@ -79,7 +79,7 @@ void main()
     vec2 uvr = vec2(length(uv), atan(uv.y, uv.x) + pi);
     uvr.x -= OUT_RADIUS;
     
-    vec3 col = vec3(0.05);
+    vec3 col = vec3(0.0);
     
     //Twisting angle
     float angle = uvr.y + 2.0*TIME + sin(uvr.y) * sin(TIME) * pi;

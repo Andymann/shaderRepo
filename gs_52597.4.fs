@@ -16,7 +16,7 @@
 precision mediump float;
 #endif
 
-#extension GL_OES_standard_derivatives : enable
+//#extension GL_OES_standard_derivatives : enable
 
 
 #define STEP t += .5 * (length(mod((vec3(1., 0., TIME) + vec3(uv, 1.) * t) + 1., 2.) - 1.) - .5)

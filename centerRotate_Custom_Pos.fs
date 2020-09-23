@@ -118,7 +118,7 @@
 precision mediump float;
 #endif
 //int Spokes = 12;
-//#extension GL_OES_standard_derivatives : enable
+////#extension GL_OES_standard_derivatives : enable
 
 
 // Created by inigo quilez - iq/2014
