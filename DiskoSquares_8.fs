@@ -1,12 +1,9 @@
-/*
-{
-  "CATEGORIES": [
-    "Automatically Converted"
-  ],
-  "DESCRIPTION": "Automatically converted from http://glslsandbox.com/e#27991.1",
-  "INPUTS": [
-    
-  ]
+/*{
+    "CATEGORIES": [
+        "Automatically Converted"
+    ],
+    "DESCRIPTION": "Automatically converted from http://glslsandbox.com/e#27991.1",
+    "ISFVSN": "2"
 }
 */
 

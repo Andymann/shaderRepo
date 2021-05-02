@@ -1,13 +1,10 @@
-/*
-{
-  "CATEGORIES" : [
-    "Automatically Converted",
-    "GLSLSandbox"
-  ],
-  "INPUTS" : [
-
-  ],
-  "DESCRIPTION" : "Automatically converted from http:\/\/glslsandbox.com\/e#56891.0"
+/*{
+    "CATEGORIES": [
+        "Automatically Converted",
+        "GLSLSandbox"
+    ],
+    "DESCRIPTION": "Automatically converted from http://glslsandbox.com/e#56891.0",
+    "ISFVSN": "2"
 }
 */
 
@@ -58,11 +55,11 @@ void mainImage(out vec4 o, vec2 U)
 void main(void)
 {
   iTime = TIME;
-  iResolution = vec3(RENDERSIZE, 0.0);
+  iResolution = vec3(RENDERSIZE, 1.0);
 
   mainImage(gl_FragColor, gl_FragCoord.xy);
-  gl_FragColor.r *= 01.;
-  gl_FragColor.g *= 01.;
+  //gl_FragColor.r *= 01.;
+  //gl_FragColor.g *= 01.;
   gl_FragColor.b = gl_FragColor.r ;
-  //gl_FragColor.a = 1.0;
+  gl_FragColor.a = 1.0;
 }
