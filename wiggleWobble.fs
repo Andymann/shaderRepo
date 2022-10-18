@@ -1,21 +1,20 @@
-/*
-{
-  "CATEGORIES" : [
-    "XXX"
-  ],
-  "DESCRIPTION" : "",
-  "ISFVSN" : "2",
-  "INPUTS" : [
-    {
-      "NAME" : "Wiggle",
-      "TYPE" : "float",
-      "MAX" : 1,
-      "DEFAULT" : 0.5,
-      "LABEL" : "Wiggle",
-      "MIN" : 0
-    }
-  ],
-  "CREDIT" : ""
+/*{
+    "CATEGORIES": [
+        "XXX"
+    ],
+    "CREDIT": "",
+    "DESCRIPTION": "",
+    "INPUTS": [
+        {
+            "DEFAULT": 0.5,
+            "LABEL": "Wiggle",
+            "MAX": 1,
+            "MIN": 0,
+            "NAME": "Wiggle",
+            "TYPE": "float"
+        }
+    ],
+    "ISFVSN": "2"
 }
 */
 

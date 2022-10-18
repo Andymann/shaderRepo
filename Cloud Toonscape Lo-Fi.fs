@@ -1,81 +1,83 @@
 /*{
-	"DESCRIPTION": "Your shader description",
-	"CREDIT": "by you",
-	"CATEGORIES": [
-		"Your category"
-	],
-	"INPUTS": [
-	{
-			"NAME": "BackColor",
-			"TYPE": "color",
-			"DEFAULT": [
-				0.0,
-				0.4,
-				0.58,
-				1.0
-			]
-		},
-		{
-			"NAME": "CloudColor",
-			"TYPE": "color",
-			"DEFAULT": [
-				0.0,
-				0.4,
-				0.58,
-				1.0
-			]
-		},
-		{
-			"NAME": "CloudSize",
-			"TYPE": "float",
-			"DEFAULT": 3.5,
-			"MIN": 0.25,
-			"MAX": 20.0
-		},
-		{
-			"NAME": "CloudDetail",
-			"TYPE": "float",
-			"DEFAULT": 0.5,
-			"MIN": 0.0,
-			"MAX": 1.3
-		},
-		{
-			"NAME": "NumLayers",
-			"TYPE": "float",
-			"DEFAULT": 0.1,
-			"MIN": 0.01,
-			"MAX": 1.0
-		},
-		{
-			"NAME": "LayerSpread",
-			"TYPE": "float",
-			"DEFAULT": 1.5,
-			"MIN": 0.25,
-			"MAX": 20.0
-		},
-		{
-			"NAME": "Blurriness",
-			"TYPE": "float",
-			"DEFAULT": 4.0,
-			"MIN": 0.0,
-			"MAX": 20.0
-		},
-		{
-			"NAME": "Zoom",
-			"TYPE": "float",
-			"DEFAULT": 18.0,
-			"MIN": 0.0,
-			"MAX": 20.0
-		},
-		{
-			"NAME": "OffsetY",
-			"TYPE": "float",
-			"DEFAULT": 2.0,
-			"MIN": 0.0,
-			"MAX": 10.0
-		}
-	]
-}*/
+    "CATEGORIES": [
+        "Your category"
+    ],
+    "CREDIT": "by you",
+    "DESCRIPTION": "Your shader description",
+    "INPUTS": [
+        {
+            "DEFAULT": [
+                0,
+                0.4,
+                0.58,
+                1
+            ],
+            "NAME": "BackColor",
+            "TYPE": "color"
+        },
+        {
+            "DEFAULT": [
+                0,
+                0.4,
+                0.58,
+                1
+            ],
+            "NAME": "CloudColor",
+            "TYPE": "color"
+        },
+        {
+            "DEFAULT": 3.5,
+            "MAX": 20,
+            "MIN": 0.25,
+            "NAME": "CloudSize",
+            "TYPE": "float"
+        },
+        {
+            "DEFAULT": 0.5,
+            "MAX": 1.3,
+            "MIN": 0,
+            "NAME": "CloudDetail",
+            "TYPE": "float"
+        },
+        {
+            "DEFAULT": 0.1,
+            "MAX": 1,
+            "MIN": 0.01,
+            "NAME": "NumLayers",
+            "TYPE": "float"
+        },
+        {
+            "DEFAULT": 1.5,
+            "MAX": 20,
+            "MIN": 0.25,
+            "NAME": "LayerSpread",
+            "TYPE": "float"
+        },
+        {
+            "DEFAULT": 4,
+            "MAX": 20,
+            "MIN": 0,
+            "NAME": "Blurriness",
+            "TYPE": "float"
+        },
+        {
+            "DEFAULT": 18,
+            "MAX": 20,
+            "MIN": 0,
+            "NAME": "Zoom",
+            "TYPE": "float"
+        },
+        {
+            "DEFAULT": 2,
+            "MAX": 10,
+            "MIN": 0,
+            "NAME": "OffsetY",
+            "TYPE": "float"
+        }
+    ],
+    "ISFVSN": "2"
+}
+*/
 
 vec3 iResolution = vec3(RENDERSIZE, 1.);
 float iGlobalTime = TIME;

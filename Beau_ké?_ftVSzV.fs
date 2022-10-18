@@ -1,16 +1,14 @@
-/*
-{
+/*{
     "CATEGORIES": [
         "Automatically Converted",
         "Shadertoy"
     ],
+    "CREDIT": "",
     "DESCRIPTION": "Automatically converted from https://www.shadertoy.com/view/ftVSzV by AntoineC.  Mes kés sont-ils beaux?",
     "IMPORTED": {
     },
-    "INPUTS": [
-    ]
+    "ISFVSN": "2"
 }
-
 */
 
 
