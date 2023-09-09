@@ -1,24 +1,10 @@
-/*
-{
-  "CATEGORIES" : [
-    "Automatically Converted",
-    "GLSLSandbox"
-  ],
-  "INPUTS" : [
-    {
-      "NAME" : "mouse",
-      "TYPE" : "point2D",
-      "MAX" : [
-        1,
-        1
-      ],
-      "MIN" : [
-        0,
-        0
-      ]
-    }
-  ],
-  "DESCRIPTION" : "Automatically converted from http:\/\/glslsandbox.com\/e#49132.0"
+/*{
+    "CATEGORIES": [
+        "Automatically Converted",
+        "GLSLSandbox"
+    ],
+    "DESCRIPTION": "Automatically converted from http://glslsandbox.com/e#49132.0",
+    "ISFVSN": "2"
 }
 */
 
@@ -54,13 +40,13 @@ precision mediump float;
 const float eps = 0.005;
 
 // Gloable variables for the raymarching algorithm.
-const int maxIterations = 128;
-const float stepScale = 0.5;
+const int maxIterations = 92;
+const float stepScale = .5;
 const float stopThreshold = 0.005; // I'm not quite sure why, but thresholds in the order of a pixel seem to work better for me... most times. 
 
 // Distance field equation for a sphere.
 float sphere(in vec3 p, in vec3 centerPos, float radius){
-
+	
 	return length(p-centerPos) - radius;
 }
 
@@ -171,7 +157,7 @@ float rayMarching( vec3 origin, vec3 dir, float start, float end ) {
 // Based on original by IQ - optimized to remove a divide
 float calculateAO(vec3 p, vec3 n)
 {
-   const float AO_SAMPLES = 5.0;
+   const float AO_SAMPLES = 4.0;
    float r = 0.0;
    float w = 1.0;
    for (float i=1.0; i<=AO_SAMPLES; i++)
@@ -192,13 +178,13 @@ vec3 lighting( vec3 sp, vec3 camPos, int reflectionPass){
     // better ways to acheive this, but it gets the job done.
     vec3 voxPos = mod(sp*0.5, 1.0);
     vec3 objColor = vec3(1.0, 1.0, 1.0);
-    if ( (voxPos.x<0.5)&&(voxPos.y>=0.5)&&(voxPos.z<0.5) ) objColor = vec3(1.0,voxPos.z*0.5,0.0);
-    else if ( (voxPos.x>=0.5)&&(voxPos.y<0.5)&&(voxPos.z>=0.5) ) objColor = vec3(0.0,0.5+voxPos.z*0.5,1.0);
+    // if ( (voxPos.x<0.5)&&(voxPos.y>=0.5)&&(voxPos.z<0.5) ) objColor = vec3(1.0,voxPos.z*0.5,0.0);
+    // else if ( (voxPos.x>=0.5)&&(voxPos.y<0.5)&&(voxPos.z>=0.5) ) objColor = vec3(0.0,0.5+voxPos.z*0.5,1.0);
     
     // I'll be doing shadows next, but for now, I've arranged for some darkish regions to move about the surface of the 
     // boxes to at least give the mild impression. 
-    float fakeShadowMovement =  sinusoidalPlasma(sp*8.);
-    objColor = clamp(objColor*(0.75-0.25*fakeShadowMovement), 0.0, 1.0);
+    // float fakeShadowMovement =  sinusoidalPlasma(sp*8.);
+    // objColor = clamp(objColor*(0.75-0.25*fakeShadowMovement), 0.0, 1.0);
 
 
     // Obtain the surface normal at the scene position "sp."

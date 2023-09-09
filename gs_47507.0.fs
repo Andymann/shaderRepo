@@ -1,13 +1,27 @@
-/*
-{
-  "CATEGORIES" : [
-    "Automatically Converted",
-    "GLSLSandbox"
-  ],
-  "INPUTS" : [
-
-  ],
-  "DESCRIPTION" : "Automatically converted from http:\/\/glslsandbox.com\/e#47507.0"
+/*{
+    "CATEGORIES": [
+        "Automatically Converted",
+        "GLSLSandbox"
+    ],
+    "DESCRIPTION": "Automatically converted from http://glslsandbox.com/e#47507.0",
+    "INPUTS": [
+        {
+            "LABEL": "Red",
+            "NAME": "fRed",
+            "TYPE": "float"
+        },
+        {
+            "LABEL": "Green",
+            "NAME": "fGreen",
+            "TYPE": "float"
+        },
+        {
+            "LABEL": "Blue",
+            "NAME": "fBlue",
+            "TYPE": "float"
+        }
+    ],
+    "ISFVSN": "2"
 }
 */
 
@@ -31,5 +45,5 @@ void main() {
 			repeat(vec3(2. * TIME, 1.+2. * TIME, TIME) +
 			vec3(st, 2.) * t)
 		));
-	gl_FragColor = vec4(vec3(1. / t), 1.);	
+	gl_FragColor = vec4(vec3(fRed / t, fGreen/t, fBlue/t), 1.);	
 }

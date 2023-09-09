@@ -6,10 +6,7 @@
     ],
     "DESCRIPTION": "Automatically converted from https://www.shadertoy.com/view/wtcSzN by tdhooper.  Something for [url]https://cineshader.com/view/wtcSzN[/url]",
     "IMPORTED": {
-        "iChannel0": {
-            "NAME": "iChannel0",
-            "PATH": "cb49c003b454385aa9975733aff4571c62182ccdda480aaba9a8d250014f00ec.png"
-        }
+        
     },
     "INPUTS": [
     ]
@@ -295,7 +292,7 @@ void main() {
     col.rgb = mix(col.rgb, vec3(1), d);
     
     // banding be gone
-    col += (IMG_NORM_PIXEL(iChannel0,mod(gl_FragCoord.xy / IMG_SIZE(iChannel0).xy,1.0)) * 2. - 1.) * .005;
+    //col += (IMG_NORM_PIXEL(iChannel0,mod(gl_FragCoord.xy / IMG_SIZE(iChannel0).xy,1.0)) * 2. - 1.) * .005;
     // gamma
     col.rgb = pow(col.rgb, vec3(1./1.5));
     col.a = col.a * .5 + .5;
